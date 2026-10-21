@@ -3,6 +3,30 @@
 
 function switchTab(tabName) {
 
+    // Sembunyikan semua tab
+    document.querySelectorAll('section[id^="tab-"]').forEach(tab => {
+        tab.classList.add('hidden');
+    });
+
+    // Tunjukkan tab yang dipilih
+    const target = document.getElementById('tab-' + tabName);
+
+    if (target) {
+        target.classList.remove('hidden');
+    }
+
+    // Tukar style button
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-slate-900', 'text-white');
+    });
+
+    const btn = document.getElementById('tabBtn-' + tabName);
+
+    if (btn) {
+        btn.classList.add('bg-slate-900', 'text-white');
+    }
+}
+
     document.querySelectorAll('.tab-content').forEach(tab => {
         tab.classList.add('hidden');
     });
